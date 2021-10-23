@@ -1,17 +1,9 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[ ]:
-
-
 from flask import Flask, request, render_template
-#from flask_cors import cross_origin
-import sklearn
 import pickle
 import pandas as pd
 
 app = Flask(__name__)
-model = pickle.load(open("FlightPricePrediction.pkl", "rb"))
+
 
 
 
@@ -154,6 +146,7 @@ def predict():
     #    'Source_Chennai', 'Source_Delhi', 'Source_Kolkata', 'Source_Mumbai',
     #    'Destination_Cochin', 'Destination_Delhi', 'Destination_Hyderabad',
     #    'Destination_Kolkata', 'Destination_New Delhi']
+        model = pickle.load(open("FlightPricePrediction.pkl", "rb"))
         
         prediction=model.predict([[
             al,
